@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.mansuribros.randomhadith.RandomHadithActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Revelation"
+                android:id="@+id/hadithChapterNameTextView"
+                android:textStyle="bold"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:textSize="30sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="The Prophet (sal Allahu alaihi wa sallam) said, He who fasts has two joys: a joy when he breaks his fast and a joy when he meets his Lord. The change in the breath of the mouth of the one who fasts is sweeter to Allah than the smell of musk."
+                android:textSize="30sp"
+                android:paddingTop="5px"
+                android:paddingBottom="5px"
+                android:textIsSelectable="true"
+                android:id="@+id/hadithTextView"
+                android:layout_below="@+id/hadithChapterNameTextView"
+                android:layout_marginTop="15dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Sahih Al-Bukhari"
+                android:id="@+id/hadithSourceTextView"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/hadithTextView"
+                android:textSize="30sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Book 1 Hadith 1"
+                android:id="@+id/hadithNumberTextView"
+                android:layout_alignParentTop="true"
+                android:layout_below="@+id/hadithSourceTextView"
+                android:layout_marginTop="5dp"
+                android:textSize="30sp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Random Hadith"
+                android:id="@+id/randomHadithButton"
+                android:textSize="15sp"
+                android:padding="15dp"
+                android:contextClickable="false"
+                android:clickable="true"
+                android:layout_alignParentBottom="false"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/hadithNumberTextView"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</RelativeLayout>
