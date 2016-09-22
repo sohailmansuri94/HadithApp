@@ -67,21 +67,42 @@
                 android:layout_marginTop="5dp"
                 android:textSize="30sp"/>
 
-            <Button
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Random Hadith"
-                android:id="@+id/randomHadithButton"
-                android:textSize="15sp"
-                android:padding="15dp"
-                android:contextClickable="false"
-                android:clickable="true"
-                android:layout_alignParentBottom="false"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/hadithNumberTextView"
-                android:layout_marginTop="15dp"
-                android:layout_gravity="center"/>
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal">
 
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Random Hadith"
+                    android:id="@+id/randomHadithButton"
+                    android:textSize="15sp"
+                    android:padding="15dp"
+                    android:contextClickable="false"
+                    android:clickable="true"
+                    android:layout_alignParentBottom="false"
+                    android:layout_below="@+id/hadithNumberTextView"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="left"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Next Hadith"
+                    android:id="@+id/nextHadithButton"
+                    android:textSize="15sp"
+                    android:padding="15dp"
+                    android:contextClickable="false"
+                    android:clickable="true"
+                    android:layout_alignParentBottom="false"
+                    android:layout_below="@+id/hadithNumberTextView"
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="left"
+                    />
+
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

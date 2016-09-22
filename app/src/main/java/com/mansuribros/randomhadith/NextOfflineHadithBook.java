@@ -1,25 +1,22 @@
 package com.mansuribros.randomhadith;
 
-import android.widget.Toast;
-import java.util.Random;
-
 /**
- * Created by Sohail on 7/9/2016.
+ * Created by Sohail on 8/22/2016.
  */
-public class RandomOfflineHadithBook {
+public class NextOfflineHadithBook {
 
     //All the offline Hadiths and references are declared here;
     private String hadithChapterName, hadithSource, bookNumber;
 
-/*        public void hadithsas()throws FileNotFoundException{
-                BufferedReader readHadithFile = new BufferedReader(new FileReader("hadiths.txt"));
-                String hadith = null;
-                try {
-                        hadith = readHadithFile.readLine();
-                }catch (IOException e){
+    /*        public void hadithsas()throws FileNotFoundException{
+                    BufferedReader readHadithFile = new BufferedReader(new FileReader("hadiths.txt"));
+                    String hadith = null;
+                    try {
+                            hadith = readHadithFile.readLine();
+                    }catch (IOException e){
 
-                }
-        }*/
+                    }
+            }*/
     private String[] hadith = {"Narrated 'Umar bin Al-Khattab: I heard Allah's Apostle saying, " +
             "\"The reward of deeds depends upon the intentions and every person will get the reward according to what he has intended. " +
             "So whoever emigrated for worldly benefits or for a woman to marry, his emigration was for what he emigrated for.\"  ",
@@ -230,44 +227,56 @@ public class RandomOfflineHadithBook {
                     "accordance with the traditions of the Prophet).\""
     };
 
-    //Create a RandomNumber which will be used to get a random Hadith;
-    public int randomNumber() {
-        Random randomGenerator = new Random();
-        int randomNumber = randomGenerator.nextInt(hadith.length);
-        return randomNumber;
-    }
-    int randomNum = randomNumber();
     //returns the Chapter name of Hadith (Index will be random number)
-    public String getHadithChapterName(){
-        if(randomNum >= 0 && randomNum <= 5){
+    public String getHadithChapterName(int num){
+        num = num+1;
+        if (num == hadith.length){
+            num = 0;
+        }
+        if(num >= 0 && num <= 5){
             hadithChapterName = "Revelation";
-        }else if(randomNum >=6 && randomNum <= 54){
+        }else if(num >=6 && num <= 54){
             hadithChapterName = "Belief";
         }
         return hadithChapterName;
     }
 
     //returns a hadith from the string (Index will be random number)
-    public String getHadith(){
-        return hadith[randomNum];
+    public String getHadith(int num){
+        num = num+1;
+        if (num == hadith.length){
+            num = 0;
+        }
+        return hadith[num];
     }
 
     //returns the source of hadith (Index will be random number)
-    public String getHadithSource(){
-        if(randomNum >= 0 && randomNum <= 54) {
+    public String getHadithSource(int num){
+        num = num +1;
+        if (num == hadith.length){
+            num = 0;
+        }
+        if(num >= 0 && num <= 54) {
             hadithSource = "Sahih Al-Bukhari";
         }
         return hadithSource;
     }
 
     //returns the book number and chapter number of hadith (index will be random number)
-    public String getBookNumber(){
-        if(randomNum >= 0 && randomNum <= 5) {
-            bookNumber = "Book 1 Hadith "+(randomNum+1);
-        }else if(randomNum >=6 && randomNum <= 54){
-            bookNumber = "Book 2 Hadith "+ (randomNum+1);
+    public String getBookNumber(int num){
+        num = num+1;
+        if (num == hadith.length){
+            num = 0;
+        }
+        if(num >= 0 && num <= 5) {
+            bookNumber = "Book 1 Hadith "+(num+1);
+        }else if(num >=6 && num <= 54){
+            bookNumber = "Book 2 Hadith "+ (num+1);
         }
         return bookNumber;
     }
 
+    public int getHadithArrayLength(){
+        return hadith.length;
+    }
 }
