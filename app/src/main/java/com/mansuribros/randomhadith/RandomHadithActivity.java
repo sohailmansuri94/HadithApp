@@ -8,8 +8,10 @@ May be a share Button??
 */
 
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,6 +24,12 @@ import java.io.IOException;
 
 public class RandomHadithActivity extends AppCompatActivity {
 
+    private static final String KEY_HADITHCHAPTERNAME = "KEY_HADITHCHAPTERNAME";
+    private static final String KEY_HADITH = "KEY_HADITH";
+    private static final String KEY_HADITHSOURCE = "KEY_HADITHSOURCE";
+    private static final String KEY_HADITHBOOKNUMBER = "KEY_HADITHBOOKNUMBER";
+    private static final String KEY_RANDOMNUMBER = "KEY_RANDOMNUMBER";
+
     //Declare Variables
     private TextView mShowHadithChapterName;
     private TextView mShowHadith;
@@ -31,7 +39,33 @@ public class RandomHadithActivity extends AppCompatActivity {
     private Button mNextHadith;
     private RandomOfflineHadithBook mRandomOfflineHadithBookObj = new RandomOfflineHadithBook();//RandomOfflineHadithBook Object
     private NextOfflineHadithBook mNextOfflineHadithBookObj = new NextOfflineHadithBook();//RandomOfflineHadithBook Object
-    int num;
+
+    private String mHadithChapterName;
+    private String mHadith;
+    private String mHadithSource;
+    private String mHadithBookNumber;
+    private int mRandomNumber;
+    private int num;
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(KEY_HADITHCHAPTERNAME, mHadithChapterName);
+        outState.putString(KEY_HADITH, mHadith);
+        outState.putString(KEY_HADITHSOURCE, mHadithSource);
+        outState.putString(KEY_HADITHBOOKNUMBER, mHadithBookNumber);
+        outState.putInt(KEY_RANDOMNUMBER, mRandomNumber);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mHadithChapterName = savedInstanceState.getString(KEY_HADITHCHAPTERNAME);
+        mHadith = savedInstanceState.getString(KEY_HADITH);
+        mHadithSource = savedInstanceState.getString(KEY_HADITHSOURCE);
+        mHadithBookNumber = savedInstanceState.getString(KEY_HADITHBOOKNUMBER);
+//        mRandomNumber = savedInstanceState.getInt(KEY_RANDOMNUMBER);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,47 +85,57 @@ public class RandomHadithActivity extends AppCompatActivity {
         mShowBookNumber.setText(mRandomOfflineHadithBookObj.getBookNumber());
 
 
+        //RANDOM BUTTON
         mRandomHadith.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Show another Hadith
                 mRandomOfflineHadithBookObj = new RandomOfflineHadithBook();//RandomOfflineHadithBook Object
-                String hadithChapterName = mRandomOfflineHadithBookObj.getHadithChapterName(); //Hadith Chapter
-                String hadith = mRandomOfflineHadithBookObj.getHadith(); //Hadith
-                String hadithSource = mRandomOfflineHadithBookObj.getHadithSource(); //Hadith Collector
-                String BookNumber = mRandomOfflineHadithBookObj.getBookNumber(); //Hadith Book number and Hadith Number
-                int randomNum = mRandomOfflineHadithBookObj.randomNumber();
+                mHadithChapterName = mRandomOfflineHadithBookObj.getHadithChapterName(); //Hadith Chapter
+                mHadith = mRandomOfflineHadithBookObj.getHadith(); //Hadith
+                mHadithSource = mRandomOfflineHadithBookObj.getHadithSource(); //Hadith Collector
+                mHadithBookNumber = mRandomOfflineHadithBookObj.getBookNumber(); //Hadith Book number and Hadith Number
+                int randomNum = mRandomOfflineHadithBookObj.getRandomNumber();
 
                 //set the display result
-                mShowHadithChapterName.setText(hadithChapterName);
-                mShowHadith.setText(hadith);
-                mShowSource.setText(hadithSource);
-                mShowBookNumber.setText(BookNumber);
+                mShowHadithChapterName.setText(mHadithChapterName);
+                mShowHadith.setText(mHadith);
+                mShowSource.setText(mHadithSource);
+                mShowBookNumber.setText(mHadithBookNumber);
+//                mRandomNumber.setText(mRandomHadith);
                 num = randomNum;
+                /*Context context = getApplicationContext();
+                Toast toast = Toast.makeText(context, "num " + num + " rand Num: "+randomNum, Toast.LENGTH_SHORT);
+                toast.show();*/
             }
         });
+//        num = mRandomNumber;
 
+        //NEXT BUTTON
         mNextHadith.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Show next Hadith
                 mNextOfflineHadithBookObj = new NextOfflineHadithBook();//RandomOfflineHadithBook Object
-                String hadithChapterName = mNextOfflineHadithBookObj.getHadithChapterName(num); //Hadith Chapter
-                String hadith = mNextOfflineHadithBookObj.getHadith(num); //Hadith
-                String hadithSource = mNextOfflineHadithBookObj.getHadithSource(num); //Hadith Collector
-                String BookNumber = mNextOfflineHadithBookObj.getBookNumber(num); //Hadith Book number and Hadith Number
+                mHadithChapterName = mNextOfflineHadithBookObj.getHadithChapterName(num); //Hadith Chapter
+                mHadith = mNextOfflineHadithBookObj.getHadith(num); //Hadith
+                mHadithSource = mNextOfflineHadithBookObj.getHadithSource(num); //Hadith Collector
+                mHadithBookNumber = mNextOfflineHadithBookObj.getBookNumber(num); //Hadith Book number and Hadith Number
                 int arrayLength = mNextOfflineHadithBookObj.getHadithArrayLength();
 
                 //set the display result
-                mShowHadithChapterName.setText(hadithChapterName);
-                mShowHadith.setText(hadith);
-                mShowSource.setText(hadithSource);
-                mShowBookNumber.setText(BookNumber);
+                mShowHadithChapterName.setText(mHadithChapterName);
+                mShowHadith.setText(mHadith);
+                mShowSource.setText(mHadithSource);
+                mShowBookNumber.setText(mHadithBookNumber);
                 num = num+1;
-
                 if(num == arrayLength){
                     num = 0;
                 }
+
+                /*Context context = getApplicationContext();
+                Toast toast = Toast.makeText(context, "num " + num, Toast.LENGTH_SHORT);
+                toast.show();*/
 
             }
         });

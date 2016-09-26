@@ -237,6 +237,7 @@ public class RandomOfflineHadithBook {
         return randomNumber;
     }
     int randomNum = randomNumber();
+
     //returns the Chapter name of Hadith (Index will be random number)
     public String getHadithChapterName(){
         if(randomNum >= 0 && randomNum <= 5){
@@ -245,6 +246,10 @@ public class RandomOfflineHadithBook {
             hadithChapterName = "Belief";
         }
         return hadithChapterName;
+    }
+
+    public int getRandomNumber(){
+        return randomNum;
     }
 
     //returns a hadith from the string (Index will be random number)
