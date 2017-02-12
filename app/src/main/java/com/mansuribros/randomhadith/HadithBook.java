@@ -1,25 +1,25 @@
 package com.mansuribros.randomhadith;
 
 import java.util.Random;
-import java.io.FileReader;
 
 /**
- * Created by Sohail on 7/9/2016.
+ * Created by Sohail on 2/12/2017.
  */
-public class RandomOfflineHadithBook {
+
+public class HadithBook {
 
     //All the offline Hadiths and references are declared here;
     private String hadithChapterName, hadithSource, bookNumber;
 
-/*        public void hadithsas()throws FileNotFoundException{
-                BufferedReader readHadithFile = new BufferedReader(new FileReader("hadiths.txt"));
-                String hadith = null;
-                try {
-                        hadith = readHadithFile.readLine();
-                }catch (IOException e){
+    /*        public void hadithsas()throws FileNotFoundException{
+                    BufferedReader readHadithFile = new BufferedReader(new FileReader("hadiths.txt"));
+                    String hadith = null;
+                    try {
+                            hadith = readHadithFile.readLine();
+                    }catch (IOException e){
 
-                }
-        }*/
+                    }
+            }*/
     private String[] hadith = {"Narrated 'Umar bin Al-Khattab: I heard Allah's Apostle saying, " +
             "\"The reward of deeds depends upon the intentions and every person will get the reward according to what he has intended. " +
             "So whoever emigrated for worldly benefits or for a woman to marry, his emigration was for what he emigrated for.\"  ",

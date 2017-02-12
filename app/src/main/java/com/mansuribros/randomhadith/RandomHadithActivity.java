@@ -38,7 +38,7 @@ public class RandomHadithActivity extends AppCompatActivity {
     private TextView mShowBookNumber;
     private Button mRandomHadith;
     private Button mNextHadith;
-    private RandomOfflineHadithBook mRandomOfflineHadithBookObj = new RandomOfflineHadithBook();//RandomOfflineHadithBook Object
+    private HadithBook mHadithBookObj = new HadithBook();//HadithBook Object
     private NextOfflineHadithBook mNextOfflineHadithBookObj = new NextOfflineHadithBook();//RandomOfflineHadithBook Object
 
     private String mHadithChapterName;
@@ -87,11 +87,11 @@ public class RandomHadithActivity extends AppCompatActivity {
         mRandomHadith = (Button) findViewById(R.id.randomHadithButton);
         mNextHadith = (Button) findViewById(R.id.nextHadithButton);
 
-        num = mRandomOfflineHadithBookObj.getRandomNumber();
-        mHadithChapterName = mNextOfflineHadithBookObj.getHadithChapterName(num); //Hadith Chapter
-        mHadith = mNextOfflineHadithBookObj.getHadith(num); //Hadith
-        mHadithSource = mNextOfflineHadithBookObj.getHadithSource(num); //Hadith Collector
-        mHadithBookNumber = mNextOfflineHadithBookObj.getBookNumber(num); //Hadith Book number and Hadith Number
+        num = mHadithBookObj.getRandomNumber();
+        mHadithChapterName = mHadithBookObj.getHadithChapterName(num); //Hadith Chapter
+        mHadith = mHadithBookObj.getHadith(num); //Hadith
+        mHadithSource = mHadithBookObj.getHadithSource(num); //Hadith Collector
+        mHadithBookNumber = mHadithBookObj.getBookNumber(num); //Hadith Book number and Hadith Number
 
         /*mShowHadithChapterName.setText(mNextOfflineHadithBookObj.getHadithChapterName(num));
         mShowHadith.setText(mNextOfflineHadithBookObj.getHadith(num));
@@ -113,12 +113,12 @@ public class RandomHadithActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Show another Hadith
-                mRandomOfflineHadithBookObj = new RandomOfflineHadithBook();//RandomOfflineHadithBook Object
-                mHadithChapterName = mRandomOfflineHadithBookObj.getHadithChapterName(); //Hadith Chapter
-                mHadith = mRandomOfflineHadithBookObj.getHadith(); //Hadith
-                mHadithSource = mRandomOfflineHadithBookObj.getHadithSource(); //Hadith Collector
-                mHadithBookNumber = mRandomOfflineHadithBookObj.getBookNumber(); //Hadith Book number and Hadith Number
-                int randomNum = mRandomOfflineHadithBookObj.getRandomNumber();
+                mHadithBookObj = new HadithBook();//HadithBook Object
+                mHadithChapterName = mHadithBookObj.getHadithChapterName(); //Hadith Chapter
+                mHadith = mHadithBookObj.getHadith(); //Hadith
+                mHadithSource = mHadithBookObj.getHadithSource(); //Hadith Collector
+                mHadithBookNumber = mHadithBookObj.getBookNumber(); //Hadith Book number and Hadith Number
+                int randomNum = mHadithBookObj.getRandomNumber();
 
                 //set the display result
                 mShowHadithChapterName.setText(mHadithChapterName);
@@ -140,12 +140,12 @@ public class RandomHadithActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Show next Hadith
-                mNextOfflineHadithBookObj = new NextOfflineHadithBook();//RandomOfflineHadithBook Object
-                mHadithChapterName = mNextOfflineHadithBookObj.getHadithChapterName(num); //Hadith Chapter
-                mHadith = mNextOfflineHadithBookObj.getHadith(num); //Hadith
-                mHadithSource = mNextOfflineHadithBookObj.getHadithSource(num); //Hadith Collector
-                mHadithBookNumber = mNextOfflineHadithBookObj.getBookNumber(num); //Hadith Book number and Hadith Number
-                int arrayLength = mNextOfflineHadithBookObj.getHadithArrayLength();
+                mHadithBookObj = new HadithBook();//HadithBook Object
+                mHadithChapterName = mHadithBookObj.getHadithChapterName(num); //Hadith Chapter
+                mHadith = mHadithBookObj.getHadith(num); //Hadith
+                mHadithSource = mHadithBookObj.getHadithSource(num); //Hadith Collector
+                mHadithBookNumber = mHadithBookObj.getBookNumber(num); //Hadith Book number and Hadith Number
+                int arrayLength = mHadithBookObj.getHadithArrayLength();
 
                 //set the display result
                 mShowHadithChapterName.setText(mHadithChapterName);
