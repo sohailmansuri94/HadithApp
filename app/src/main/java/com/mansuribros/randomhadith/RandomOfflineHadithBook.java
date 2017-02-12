@@ -1,7 +1,7 @@
 package com.mansuribros.randomhadith;
 
-import android.widget.Toast;
 import java.util.Random;
+import java.io.FileReader;
 
 /**
  * Created by Sohail on 7/9/2016.

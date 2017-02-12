@@ -30,19 +30,18 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:textSize="30sp"/>
+                android:textSize="21sp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="The Prophet (sal Allahu alaihi wa sallam) said, He who fasts has two joys: a joy when he breaks his fast and a joy when he meets his Lord. The change in the breath of the mouth of the one who fasts is sweeter to Allah than the smell of musk."
-                android:textSize="30sp"
-                android:paddingTop="5px"
-                android:paddingBottom="5px"
+                android:textSize="21sp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:textIsSelectable="true"
                 android:id="@+id/hadithTextView"
                 android:layout_below="@+id/hadithChapterNameTextView"
-                android:layout_marginTop="15dp"/>
+                android:layout_marginTop="5dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -52,9 +51,9 @@
                 android:id="@+id/hadithSourceTextView"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_below="@+id/hadithTextView"
-                android:textSize="30sp"/>
+                android:textSize="21sp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -65,41 +64,44 @@
                 android:layout_alignParentTop="true"
                 android:layout_below="@+id/hadithSourceTextView"
                 android:layout_marginTop="5dp"
-                android:textSize="30sp"/>
+                android:textSize="21sp"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_gravity="center_horizontal">
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp">
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Random Hadith"
                     android:id="@+id/randomHadithButton"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     android:padding="15dp"
                     android:contextClickable="false"
                     android:clickable="true"
                     android:layout_alignParentBottom="false"
                     android:layout_below="@+id/hadithNumberTextView"
                     android:layout_marginTop="15dp"
-                    android:layout_gravity="left"/>
+                    android:layout_gravity="left|right"
+                    />
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Next Hadith"
                     android:id="@+id/nextHadithButton"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     android:padding="15dp"
                     android:contextClickable="false"
                     android:clickable="true"
-                    android:layout_alignParentBottom="false"
                     android:layout_below="@+id/hadithNumberTextView"
                     android:layout_marginTop="15dp"
+                    android:layout_marginLeft="15dp"
                     android:layout_gravity="left"
+                    android:layout_alignParentBottom="false"
                     />
 
             </LinearLayout>

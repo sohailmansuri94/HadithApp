@@ -1,5 +1,6 @@
 package com.mansuribros.randomhadith;
-/* Things need to FIX
+/*
+Things need to FIX
 some variables are repeating
 Clean up code
 add a method to check online way
@@ -54,7 +55,7 @@ public class RandomHadithActivity extends AppCompatActivity {
         outState.putString(KEY_HADITH, mHadith);
         outState.putString(KEY_HADITHSOURCE, mHadithSource);
         outState.putString(KEY_HADITHBOOKNUMBER, mHadithBookNumber);
-        outState.putInt(KEY_RANDOMNUMBER, mRandomNumber);
+        outState.putInt(KEY_RANDOMNUMBER, num);
     }
 
     @Override
@@ -64,7 +65,14 @@ public class RandomHadithActivity extends AppCompatActivity {
         mHadith = savedInstanceState.getString(KEY_HADITH);
         mHadithSource = savedInstanceState.getString(KEY_HADITHSOURCE);
         mHadithBookNumber = savedInstanceState.getString(KEY_HADITHBOOKNUMBER);
-//        mRandomNumber = savedInstanceState.getInt(KEY_RANDOMNUMBER);
+        mRandomNumber = savedInstanceState.getInt(KEY_RANDOMNUMBER);
+
+        mShowHadithChapterName.setText(mHadithChapterName);
+        mShowHadith.setText(mHadith);
+        mShowSource.setText(mHadithSource);
+        mShowBookNumber.setText(mHadithBookNumber);
+        num=mRandomNumber;
+
     }
 
     @Override
@@ -79,11 +87,26 @@ public class RandomHadithActivity extends AppCompatActivity {
         mRandomHadith = (Button) findViewById(R.id.randomHadithButton);
         mNextHadith = (Button) findViewById(R.id.nextHadithButton);
 
-        mShowHadithChapterName.setText(mRandomOfflineHadithBookObj.getHadithChapterName());
-        mShowHadith.setText(mRandomOfflineHadithBookObj.getHadith());
-        mShowSource.setText(mRandomOfflineHadithBookObj.getHadithSource());
-        mShowBookNumber.setText(mRandomOfflineHadithBookObj.getBookNumber());
+        num = mRandomOfflineHadithBookObj.getRandomNumber();
+        mHadithChapterName = mNextOfflineHadithBookObj.getHadithChapterName(num); //Hadith Chapter
+        mHadith = mNextOfflineHadithBookObj.getHadith(num); //Hadith
+        mHadithSource = mNextOfflineHadithBookObj.getHadithSource(num); //Hadith Collector
+        mHadithBookNumber = mNextOfflineHadithBookObj.getBookNumber(num); //Hadith Book number and Hadith Number
 
+        /*mShowHadithChapterName.setText(mNextOfflineHadithBookObj.getHadithChapterName(num));
+        mShowHadith.setText(mNextOfflineHadithBookObj.getHadith(num));
+        mShowSource.setText(mNextOfflineHadithBookObj.getHadithSource(num));
+        mShowBookNumber.setText(mNextOfflineHadithBookObj.getBookNumber(num));*/
+
+        mShowHadithChapterName.setText(mHadithChapterName);
+        mShowHadith.setText(mHadith);
+        mShowSource.setText(mHadithSource);
+        mShowBookNumber.setText(mHadithBookNumber);
+
+
+//        savedInstanceState.putString(KEY_HADITH,mHadith);
+
+        num=num+1;
 
         //RANDOM BUTTON
         mRandomHadith.setOnClickListener(new View.OnClickListener() {
@@ -107,6 +130,7 @@ public class RandomHadithActivity extends AppCompatActivity {
                 /*Context context = getApplicationContext();
                 Toast toast = Toast.makeText(context, "num " + num + " rand Num: "+randomNum, Toast.LENGTH_SHORT);
                 toast.show();*/
+
             }
         });
 //        num = mRandomNumber;
